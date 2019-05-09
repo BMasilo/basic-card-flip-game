@@ -1,17 +1,17 @@
 // selecting all elements from the document with class ='memory-card'
 const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
+let cardFlipped = false;
 let firstCard, secondCard;
 
 function flipCard() {
   this.classList.add('flip');
 
-  if(hasFlippedCard != true){
-    hasFlippedCard = true;
+  if(cardFlipped != true){
+    cardFlipped = true;
     firstCard = this;
   } else{
-    hasFlippedCard = false;
+    cardFlipped = false;
     secondCard = this;
 
     // do cards match?
@@ -24,7 +24,7 @@ function flipCard() {
 }
 
 //to shuffle cards when the page loads
-(function newBoard(){
+(function newGame(){
   cards.forEach(card => {
     card.style.order = Math.floor(Math.random() * 12);
   })
